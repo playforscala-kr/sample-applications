@@ -1,0 +1,12 @@
+# 환영 페이지
+GET /              controllers.Application.index
+# 상품 목록
+GET /products      controllers.Products.list
+
+# ean 매개변수를 가진 라우트
+POST /products       controllers.Products.save
+GET  /products/new   controllers.Products.newProduct
+GET /products/:ean controllers.Products.show(ean: Long)  
+GET /barcode/:ean controllers.Barcodes.barcode(ean: Long)
+
+GET /assets/*file  controllers.Assets.versioned(path="/public", file)

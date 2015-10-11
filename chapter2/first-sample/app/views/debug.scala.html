@@ -1,0 +1,7 @@
+@()(implicit messages: Messages)        @* 요청에서 설정될 애플리케이션 언어 *@
+@import play.api.Play.current
+<footer>
+    lang = @messages.lang.code,
+    user = @current.configuration.getString("environment.user"),
+    date = @(new java.util.Date().format("yyyy-MM-dd HH:mm"))
+</footer>

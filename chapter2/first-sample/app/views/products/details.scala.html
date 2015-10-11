@@ -1,0 +1,16 @@
+@(product: Product)(implicit flash: Flash, messages: Messages)
+
+@main(Messages("products.details", product.name)) {
+  <h2>
+    @tags.barcode(product.ean)      @* 바코드 태그 호출 *@
+    @Messages("products.details", product.name)
+  </h2>
+    <dl class="dl-horizontal">      @* 상품 상세사항 출력 *@
+      <dt>@Messages("ean"):</dt>
+      <dd>@product.ean</dd>
+      <dt>@Messages("name"):</dt>
+      <dd>@product.name</dd>
+      <dt>@Messages("description"):</dt>
+      <dd>@product.description</dd>
+  </dl>
+}

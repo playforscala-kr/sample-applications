@@ -1,0 +1,14 @@
+@(products: List[Product])(implicit flash: Flash, messages: Messages)   @* implicit 매개변수 *@
+
+@main(Messages("application.name")) {
+  <dl class="products">
+    @for(product <- products) {
+      <dt>
+        <a href="@controllers.routes.Products.show(product.ean)">
+          @product.name
+        </a>
+      </dt>
+      <dd>@product.description</dd>
+    }
+  </dl>
+}
