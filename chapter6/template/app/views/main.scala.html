@@ -1,0 +1,38 @@
+@(title: String)(content: Html)(implicit cart: Cart)
+<!DOCTYPE html>
+<html>
+<head>
+<title>@title</title>
+<link rel="stylesheet" type="text/css" media="screen" href='@routes.Assets.versioned("lib/bootstrap/css/bootstrap.css")'>
+<link rel="stylesheet" type="text/css" media="screen" href='@routes.Assets.versioned("stylesheets/main.css")'>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+</head>
+<body>
+  <div class="screenshot">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="@routes.Application.index()">
+          Paper-Clip Company Inc.
+        </a>
+      </div>
+      @navigation()
+    </div>
+
+    <span id="cartSummary" class="label label-info pull-right">
+      @cart.productCount match {
+        case 0 => {
+          Your shopping cart is empty.
+        }
+
+        case n => {
+          You have @n items in your shopping cart.
+        }
+      }
+    </span>
+          
+    <div class="container">
+      @content
+    </div>
+  </div>
+</body>
+</html>
