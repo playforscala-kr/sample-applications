@@ -1,0 +1,31 @@
+@(title: String)(content: Html)
+<!DOCTYPE html>
+<html>
+<head>
+<title>@title</title>
+<link rel="stylesheet" type="text/css" media="screen" href='@routes.Assets.versioned("lib/bootstrap/css/bootstrap.css")'>
+<link rel="stylesheet" type="text/css" media="screen" href='@routes.Assets.versioned("stylesheets/main.css")'>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+</head>
+<body>
+  <div class="screenshot">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="@routes.Application.index()">
+          Product Admin
+        </a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="@routes.Application.index">Home</a></li>
+          <li><a href="#">Products</a></li>
+          <li><a href="@routes.Products.create">Add Products</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container">
+      @content
+    </div>
+  </div>
+</body>
+</html>

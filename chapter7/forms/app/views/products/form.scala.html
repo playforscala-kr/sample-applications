@@ -1,0 +1,20 @@
+@(productForm: Form[Product])(implicit messages : Messages)
+
+@import views.html.helper.twitterBootstrap._
+
+@main("Product Form") {
+  @helper.form(action = routes.Products.create) {
+  @helper.inputText(productForm("name"))
+    @helper.textarea(productForm("description"))
+    @helper.inputText(productForm("ean"))
+    @helper.inputText(productForm("pieces"))
+    @helper.checkbox(productForm("active"), '_help -> "Activated")
+    <div class="form-actions">
+      <button type="submit">Create Product</button>
+    </div>
+  }
+  @productForm.globalError.map { error =>
+    <span class="error">@error.message</span>
+  }
+
+}

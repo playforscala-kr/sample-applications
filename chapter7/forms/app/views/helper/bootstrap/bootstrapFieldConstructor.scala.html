@@ -1,0 +1,18 @@
+@(elements: helper.FieldElements)
+
+<div class="control-group @elements.args.get('_class)
+  @if(elements.hasErrors) {error}"
+  id="@elements.args.get('_id).getOrElse(elements.id + "_field")" >
+  <label class="control-label" for="@elements.id">
+    @elements.label
+  </label>
+  <div class="controls">
+    @elements.input
+    <span class="help-inline">
+      @if(elements.errors.nonEmpty) {
+        @elements.errors.mkString(", ")
+      } else {
+        @elements.infos.mkString(", ")
+} </span>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+@(productForm: Form[Tags])(implicit messages : Messages)
+
+@main("Product Form") {
+  @helper.form(action = routes.Products.tags) {
+	@helper.repeat(productForm("tags"), min = 3) { tagField =>
+  		@helper.inputText(tagField, '_label -> "Tag")
+	}
+     <div class="form-actions">
+      <button type="submit">Create Product</button>
+    </div>
+  }
+ }
